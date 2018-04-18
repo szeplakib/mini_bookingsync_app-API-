@@ -23,7 +23,6 @@ gem 'bootstrap-sass', '3.3.7'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 #Testing
-gem 'rspec', '~> 3.0'
 gem 'jsonapi-resources'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -40,6 +39,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rspec', '~> 3.0'
+  gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
   # Makes sample users, or rentals
 end
 
