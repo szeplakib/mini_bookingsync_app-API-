@@ -42,13 +42,15 @@ group :development, :test do
   gem 'rspec', '~> 3.0'
   gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
+  gem 'debase', '~> 0.2.2'
+  gem 'ruby-debug-ide', '~> 0.6.1'
+  gem 'factory_bot_rails'
   # Makes sample users, or rentals
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'faker', '1.8.7'
-  gem 'factory_bot_rails'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop', '~> 0.55.0', require: false
