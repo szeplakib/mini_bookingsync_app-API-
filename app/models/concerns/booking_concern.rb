@@ -1,3 +1,4 @@
+# Defines methods for Booking model
 module BookingConcern
   extend ActiveSupport::Concern
 

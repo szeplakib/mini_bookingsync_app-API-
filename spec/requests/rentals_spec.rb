@@ -1,10 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Rentals API', type: :request do
-  # initialize test data 
   let!(:rentals) { create_list(:rental, 10) }
   let(:rental_id) { rentals.first.id }
-
 
   describe 'GET /rentals' do
     before { get '/rentals' }
