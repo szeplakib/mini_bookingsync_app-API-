@@ -17,6 +17,7 @@ class Booking < ApplicationRecord
             is_available: true
   validates :price,
             presence: true,
-            numericality: { greater_than_or_equal_to: 0 }
+            numericality: { greater_than_or_equal_to: 0 },
+            is_correct_price: true
   
 end
