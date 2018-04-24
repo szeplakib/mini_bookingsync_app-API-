@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe 'Booking API' do
+RSpec.describe 'Bookings API' do
   let!(:rental) { create(:rental) }
-  let!(:booking) { create_list(:booking, 20, rental_id: rental.id) }
+  let!(:bookings) { create_list(:booking, 1, rental_id: rental.id) }
   let(:rental_id) { rental.id }
   let(:id) { bookings.first.id }
 
@@ -15,7 +15,7 @@ RSpec.describe 'Booking API' do
       end
 
       it 'returns all rental bookings' do
-        expect(json.size).to eq(20)
+        expect(json.size).to eq(1)
       end
     end
 
@@ -59,7 +59,7 @@ RSpec.describe 'Booking API' do
   end
 
   describe 'POST /rentals/:rental_id/bookings' do
-    let(:valid_attributes) { { name: 'Visit Narnia', done: false } }
+    let(:valid_attributes) { { start_at: "2018-06-1", end_at: "2018-06-5", client_email: "test@example.com", price: 40 } }
 
     context 'when request attributes are valid' do
       before { post "/rentals/#{rental_id}/bookings", params: valid_attributes }
@@ -70,20 +70,20 @@ RSpec.describe 'Booking API' do
     end
 
     context 'when an invalid request' do
-      before { post "/rentals/#{rental_id}/bookings", params: {} }
+      before { post "/rentals/#{rental_id}/bookings", params: {start_at: "2018-06-5", end_at: "2018-06-1", client_email: "test@example.com", price: 40} }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
       end
 
       it 'returns a failure message' do
-        expect(response.body).to match(/Validation failed: Name can't be blank/)
+        expect(response.body).to match(/Validation failed: Start at End set before start, Price Price is not related to booking length or Rental's daily rate/)
       end
     end
   end
 
   describe 'PUT /rentals/:rental_id/bookings/:id' do
-    let(:valid_attributes) { { name: 'Mozart' } }
+    let(:valid_attributes) { { start_at: "2018-04-20 22:30:31", end_at: "2018-04-22 22:30:31", client_email: "test@example.com", price: 20 } }
 
     before { put "/rentals/#{rental_id}/bookings/#{id}", params: valid_attributes }
 
@@ -94,7 +94,7 @@ RSpec.describe 'Booking API' do
 
       it 'updates the booking' do
         updated_booking = Booking.find(id)
-        expect(updated_booking.name).to match(/Mozart/)
+        expect(updated_booking.client_email).to match(/test@example.com/)
       end
     end
 
