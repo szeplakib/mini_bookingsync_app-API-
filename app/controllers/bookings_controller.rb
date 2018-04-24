@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    head :no_content
+    head 204
   end
 
   private
