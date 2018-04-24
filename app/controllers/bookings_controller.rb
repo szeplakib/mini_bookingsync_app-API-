@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
 
   def update
     @booking.update!(booking_params)
-    json_response(@booking, :created)
+    json_response(@booking, :ok)
   end
 
   def destroy
