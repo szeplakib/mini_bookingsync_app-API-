@@ -4,27 +4,27 @@ Mini bookingsync app is an in development Ruby on Rails app.
 This example app is for booking rentals.
 
 It's API has 2 endpoints: Rentals, and Bookings
-#Models
+# Models
 
-##Rental model
-###Attributes
+## Rental model
+### Attributes
 * id				(bigint)
 * name			(string)
 * daily_rate	(float)
 * created_at	(datetime)
 * updated_at	(datetime)
-###Validations
-####name
+### Validations
+#### name
 * must be present
 * maximum length is 255 chars
 * must be unique (not case sensitive)
-####daily_rate
+#### daily_rate
 * can't be blank
 * can't be a negative value, and must be less than, or equal to 100000000
-#####Rental has many Bookings
+##### Rental has many Bookings
 
-##Booking model
-###Attributes
+## Booking model
+### Attributes
 * id				(bigint)
 * rental_id		(bigint)
 * start_at		(datetime)
@@ -33,28 +33,29 @@ It's API has 2 endpoints: Rentals, and Bookings
 * price			(float)
 * created_at	(datetime)
 * updated_at	(datetime)
-###Validations
-####start_at & end_at
+### Validations
+#### start_at & end_at
 * the dates must be present
 * start_at must be before end_at
 * the date for that Rental must be available
-####client_email
+#### client_email
 * must be present
 * must be in valid email format
 * maximum length is 255 chars
-####price
+#### price
 * must be present
 * can't be negative
 * must be the correct price, which is: ( end_date - start_date ) * daily_price (every started day counts)
-#####Booking belongs to Rental
+##### Booking belongs to Rental
 
-#Controllers
+# Controllers
 
-##Rental
+## Rental
 *the rental controller already responses in JSON
-##Booking
+## Booking
 
-#Routes(so far)
+# Routes(so far)
+```
 GET    /rentals/:rental_id/bookings(.:format)          bookings#index
 POST   /rentals/:rental_id/bookings(.:format)          bookings#create
 GET    /rentals/:rental_id/bookings/new(.:format)      bookings#new
@@ -71,7 +72,7 @@ GET    /rentals/:id(.:format)                          rentals#show
 PATCH  /rentals/:id(.:format)                          rentals#update
 PUT    /rentals/:id(.:format)                          rentals#update
 DELETE /rentals/:id(.:format)                          rentals#destroy
-
+```
 * Ruby version: 2.5.0
 
 * Rails version: 5.1.6
