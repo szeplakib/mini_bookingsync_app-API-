@@ -45,13 +45,13 @@ RSpec.describe 'Rentals API', type: :request do
   end
 
   describe 'POST /rentals' do
-    let(:valid_attributes) { { title: 'Learn Elm', created_by: '1' } }
+    let(:valid_attributes) { { name: 'Hotel8', daily_rate: '30' } }
 
     context 'when the request is valid' do
       before { post '/rentals', params: valid_attributes }
 
       it 'creates a rental' do
-        expect(json['title']).to eq('Learn Elm')
+        expect(json['name']).to eq('Hotel8')
       end
 
       it 'returns status code 201' do
@@ -60,7 +60,7 @@ RSpec.describe 'Rentals API', type: :request do
     end
 
     context 'when the request is invalid' do
-      before { post '/rentals', params: { title: 'Foobar' } }
+      before { post '/rentals', params: { name: 'Hotel4' } }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
@@ -68,16 +68,16 @@ RSpec.describe 'Rentals API', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/Validation failed: Created by can't be blank/)
+          .to match(/Validation failed: Daily rate can't be blank/)
       end
     end
   end
 
-  describe 'PUT /rentals/:id' do
-    let(:valid_attributes) { { name: 'Hotel', daily_rate: 5.21 } }
+  describe 'PATCH /rentals/:id' do
+    let(:valid_attributes) { { name: 'Hotel' } }
 
     context 'when the record exists' do
-      before { put "/rentals/#{rental_id}", params: valid_attributes }
+      before { patch "/rentals/#{rental_id}", params: valid_attributes }
 
       it 'updates the record' do
         expect(response.body).to be_empty

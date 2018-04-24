@@ -3,7 +3,8 @@ class Rental < ApplicationRecord
   has_many :bookings, dependent: :destroy
   validates :name,
             presence: true,
-            length: { maximum: 255 }
+            length: { maximum: 255 },
+            uniqueness: { case_sensitive: false }
   validates :daily_rate,
             presence: true,
             numericality: { greater_than_or_equal_to: 0,
