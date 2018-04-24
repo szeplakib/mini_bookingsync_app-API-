@@ -51,7 +51,7 @@ It's API has 2 endpoints: Rentals, and Bookings
 # Controllers
 
 ## Rental
-*the rental controller already responses in JSON
+* The rental controller already responses in JSON
 ## Booking
 
 # Routes(so far)
