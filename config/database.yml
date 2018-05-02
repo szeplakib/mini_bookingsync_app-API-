@@ -12,7 +12,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: mini_bookingsync_app_development
+  database: mini_bookingsync_app_test
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: mini_bookingsync_app
   password: bence
@@ -20,7 +20,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: mini_bookingsync_app_development
+  database: mini_bookingsync_app_production
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: mini_bookingsync_app
   password: bence

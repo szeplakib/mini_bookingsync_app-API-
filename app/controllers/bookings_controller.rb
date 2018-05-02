@@ -36,6 +36,6 @@ class BookingsController < ApplicationController
   end
 
   def set_rental_booking
-    @booking = @rental.bookings.find_by!(id: params[:id]) if @rental
+    @booking = @rental.bookings.find_by!(id: params[:id])
   end
 end
