@@ -28,6 +28,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
+    params[:price] = (params[:end_at].to_date - params[:start_at].to_date) * @rental[:daily_rate]
     params.permit(:start_at, :end_at, :client_email, :price)
   end
 
