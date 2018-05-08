@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
-  before_action :set_rental
-  before_action :set_rental_booking, only: [:show, :update, :destroy]
+  before_action :set_rental, only: %i[index show create update destroy]
+  before_action :set_rental_booking, only: %i[show update destroy]
+
+  def index_all
+    json_response(Booking.all)
+  end
 
   def index
     json_response(@rental.bookings)

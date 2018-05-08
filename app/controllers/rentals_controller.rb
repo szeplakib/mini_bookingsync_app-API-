@@ -12,17 +12,20 @@ class RentalsController < ApplicationController
   end
 
   def show
-    json_response(@rental)
+    json_response(
+      rental: @rental,
+      bookings: @rental.bookings
+    )
   end
 
   def update
-    @rental.update(rental_params)
-    head :no_content
+    @rental.update!(rental_params)
+    json_response({}, 200)
   end
 
   def destroy
     @rental.destroy
-    head :no_content
+    head 204
   end
 
   private
