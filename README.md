@@ -1,7 +1,9 @@
 # Mini bookingsync app(API) :metal:
 
-Mini bookingsync app is an in development Ruby on Rails app.
-This example app is for booking rentals.
+Mini bookingsync app is a sample Ruby on Rails app.
+It's funtion is to be ably to book rentals.
+
+It's client is found at: [Mini-BookingSync Client](https://github.com/szeplakib/mini_bookingsync_app-Client-)
 
 It's API has 2 endpoints: Rentals, and Bookings
 # Models
@@ -80,4 +82,4 @@ edit_rental_booking GET    /rentals/:rental_id/bookings/:id/edit(.:format) booki
 
 * Database: Postgresql: 10.3
 
-* The gems in the gem file
+* The required gems are listed in in the gem file
