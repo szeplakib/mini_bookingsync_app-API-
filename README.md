@@ -50,11 +50,9 @@ It's API has 2 endpoints: Rentals, and Bookings
 
 # Controllers
 
-## Rental
-* The rental controller already responses in JSON
-## Booking
+The API accepts JSON-s from the client, and respondes in JSON, if there is a body.
 
-# Routes(so far)
+# Endpoints, routes
 ```
 GET    /rentals/:rental_id/bookings(.:format)          bookings#index
 POST   /rentals/:rental_id/bookings(.:format)          bookings#create
