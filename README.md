@@ -54,22 +54,25 @@ The API accepts JSON-s from the client, and respondes in JSON, if there is a bod
 
 # Endpoints, routes
 ```
-GET    /rentals/:rental_id/bookings(.:format)          bookings#index
-POST   /rentals/:rental_id/bookings(.:format)          bookings#create
-GET    /rentals/:rental_id/bookings/new(.:format)      bookings#new
-GET    /rentals/:rental_id/bookings/:id/edit(.:format) bookings#edit
-GET    /rentals/:rental_id/bookings/:id(.:format)      bookings#show
-PATCH  /rentals/:rental_id/bookings/:id(.:format)      bookings#update
-PUT    /rentals/:rental_id/bookings/:id(.:format)      bookings#update
-DELETE /rentals/:rental_id/bookings/:id(.:format)      bookings#destroy
-GET    /rentals(.:format)                              rentals#index
-POST   /rentals(.:format)                              rentals#create
-GET    /rentals/new(.:format)                          rentals#new
-GET    /rentals/:id/edit(.:format)                     rentals#edit
-GET    /rentals/:id(.:format)                          rentals#show
-PATCH  /rentals/:id(.:format)                          rentals#update
-PUT    /rentals/:id(.:format)                          rentals#update
-DELETE /rentals/:id(.:format)                          rentals#destroy
+    rental_bookings GET    /rentals/:rental_id/bookings(.:format)          bookings#index
+                    POST   /rentals/:rental_id/bookings(.:format)          bookings#create
+ new_rental_booking GET    /rentals/:rental_id/bookings/new(.:format)      bookings#new
+edit_rental_booking GET    /rentals/:rental_id/bookings/:id/edit(.:format) bookings#edit
+     rental_booking GET    /rentals/:rental_id/bookings/:id(.:format)      bookings#show
+                    PATCH  /rentals/:rental_id/bookings/:id(.:format)      bookings#update
+                    PUT    /rentals/:rental_id/bookings/:id(.:format)      bookings#update
+                    DELETE /rentals/:rental_id/bookings/:id(.:format)      bookings#destroy
+            rentals GET    /rentals(.:format)                              rentals#index
+                    POST   /rentals(.:format)                              rentals#create
+         new_rental GET    /rentals/new(.:format)                          rentals#new
+        edit_rental GET    /rentals/:id/edit(.:format)                     rentals#edit
+             rental GET    /rentals/:id(.:format)                          rentals#show
+                    PATCH  /rentals/:id(.:format)                          rentals#update
+                    PUT    /rentals/:id(.:format)                          rentals#update
+                    DELETE /rentals/:id(.:format)                          rentals#destroy
+           bookings GET    /bookings(.:format)                             bookings#index_all
+  bookings_by_email GET    /bookings_by_email(.:format)                    bookings#index_by_email
+
 ```
 * Ruby version: 2.5.0
 
